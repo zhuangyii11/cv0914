@@ -1,30 +1,47 @@
 export const profile = {
-  name: '林予安',
-  role: '数字产品设计师 & 体验策略顾问',
-  location: '上海 / 远程协作',
-  available: '正在寻找有意义的下一站',
-  intro: '我把复杂的问题整理成清晰、可用、有人情味的产品体验。过去 6 年，我和产品、工程及品牌团队一起，把想法变成真实世界里的改变。',
-  email: 'hello@linyuan.design',
-  social: ['LinkedIn', 'Dribbble', '小红书'],
+  name: '庄依文',
+  englishName: 'Zhuang Yiwen',
+  role: '以空间为媒介的文化与体验型设计师',
+  location: '香港 / 厦门',
+  available: '寻找新的挑战',
+  intro: '从场地、文化和人的体验出发，把抽象概念转化成空间与视觉表达，空间不仅是被建造出来的，也是被体验、被记忆、被重新理解的。',
+  email: 'yiwenzhuang@ln.hk',
+  phone: '+852 6768 6871',
+  education: '香港岭南大学 · 艺术科技与商业理学',
 }
 
 export const stats = [
-  { value: '06', label: '年设计经验' },
-  { value: '32', label: '个上线项目' },
-  { value: '12', label: '个合作品牌' },
+  { value: '04', label: '空间叙事 → 文化场所 → 视觉传播 → 项目落地' },
+]
+
+export const highlights = [
+  { label: 'Focus', value: '空间叙事 / 文化场所 / 公共空间' },
+  { label: 'Approach', value: '研究驱动 · 情感语境 · 视觉转译' },
+  { label: 'Base', value: '香港 / 厦门 / 可远程协作' },
 ]
 
 export const projects = [
-  { id: 'field-notes', title: 'Field Notes', category: '产品设计', year: '2024', description: '为户外创作者设计的灵感采集与路线协作工具。', tags: ['UX / UI', 'Web App'], image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85', accent: 'moss' },
-  { id: 'after-rain', title: '庄', category: '品牌体验', year: '2023', description: '一间社区书店的品牌重塑，让阅读重新回到街区生活。', tags: ['Branding', 'Art Direction'], image: 'https://images.unsplash.com/photo-1526243741027-444d633d7365?auto=format&fit=crop&w=1200&q=85', accent: 'coral' },
-  { id: 'common-ground', title: 'Common Ground', category: '服务创新', year: '2023', description: '帮助城市邻里共享闲置空间的社区服务实验。', tags: ['Research', 'Service Design'], image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85', accent: 'blue' },
-  { id: 'small-rituals', title: 'Small Rituals', category: '视觉实验', year: '2022', description: '一组关于日常感知、时间与微小幸福的动态视觉练习。', tags: ['Motion', 'Editorial'], image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85', accent: 'lilac' },
+  { id: 'place', title: 'PLACE / 地方', category: 'PLACE', year: '2024', description: '基于情感语境下的安海古街空间叙事视角下的更新设计。', tags: ['空间叙事', '文化场所'], image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85', accent: 'moss' },
+  { id: 'community', title: 'COMMUNITY / 社区', category: 'COMMUNITY', year: '2023', description: '设计赋能与艺术引领下的乡村振兴。', tags: ['Rural revitalization under the guidance of design empowerment and art'], image: 'https://images.unsplash.com/photo-1526243741027-444d633d7365?auto=format&fit=crop&w=1200&q=85', accent: 'coral' },
+  { id: 'space', title: 'SPACE / 空间', category: 'SPACE', year: '2022', description: '从概念到落地', tags: ['From Concept to Reality'], image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85', accent: 'blue' },
 ]
 
 export const experience = [
   { period: '2022 — 现在', company: 'Morrow Studio', role: 'Lead Product Designer' },
   { period: '2020 — 2022', company: '野岸咨询', role: '体验设计师' },
   { period: '2018 — 2020', company: '自由职业', role: '品牌与视觉设计' },
+]
+
+export const thinkingSteps = [
+  { number: '01', title: 'OBSERVE 观察', detail: '概念形成：场地调研 / 环境考察 / 行人行为观察 / 文化研究' },
+  { number: '02', title: 'UNDERSTAND 理解', detail: '从观察中提炼：场地特征 / 用户需求 / 文化背景 / 功能关系 / 情感语境' },
+  { number: '03', title: 'DESIGN 设计', detail: '再进入具体：空间布局 / 功能分区 / 景观设计 / 展览设计 / 公共空间 / 视觉呈现' },
+]
+
+export const capabilities = [
+  '第一层：我是一个空间设计师 Spatial Designer',
+  '第二层：我的设计关注人与地方 Place · People · Experience',
+  '第三层：我能把文化与情感转化成设计 Culture → Story → Space',
 ]
 
 export const notes = [
