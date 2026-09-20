@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { capabilities, highlights, notes, profile, projects, thinkingSteps } from './data'
+import heroGarden from './assets/庄依文个人简历及作品集_20.png'
 import './App.css'
 
-const filters = ['全部', '場域更新', '社區設計', '空間體驗']
+const filters = ['視覺體驗', '場域更新', '社區設計', '空間體驗']
 const categoryLabels = { PLACE: '場域更新', COMMUNITY: '社區設計', SPACE: '空間體驗' }
 
 function ArrowIcon() { return <span className="arrow-icon" aria-hidden="true">↗</span> }
@@ -12,7 +13,7 @@ function App() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeStep, setActiveStep] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
-  const visibleProjects = activeFilter === '全部' ? projects : projects.filter((project) => categoryLabels[project.category] === activeFilter)
+  const visibleProjects = activeFilter === '視覺體驗' ? projects : projects.filter((project) => categoryLabels[project.category] === activeFilter)
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
@@ -33,7 +34,7 @@ function App() {
     <div className="page-shell">
       <header className={`site-header ${mobileOpen ? 'menu-open' : ''}`}>
         <div className="site-header__inner">
-          <a className="wordmark" href="#top" aria-label="回到首頁">ZY<span>.</span></a>
+          <a className="wordmark" href="#top" aria-label="回到首頁">ZHUANG<span>.</span></a>
           <nav className="nav-links" aria-label="主要導覽"><a href="#work">作品</a><a href="#about">關於</a><a href="#awards">獎項</a></nav>
           <a className="header-contact" href={`mailto:${profile.email}`}>聯絡我 <ArrowIcon /></a>
           <button className="menu-btn" type="button" aria-expanded={mobileOpen} aria-label="開啟選單" onClick={() => setMobileOpen((current) => !current)}><span /><span /></button>
@@ -46,7 +47,7 @@ function App() {
       </div>
 
       <main className="site-shell">
-        <section className="hero reveal" id="top"><div className="hero-aside"><span>個人簡歷 & 作品集</span><span>2022 — 2026</span></div><div className="hero-copy"><p className="eyebrow"><span className="status-dot" /> {profile.available}</p><h1>{profile.name}<span>{profile.englishName}</span></h1><p className="hero-role">{profile.title}</p><p className="hero-intro">{profile.intro}</p><div className="hero-actions"><a className="pill-btn" href="#work">瀏覽作品 <ArrowIcon /></a><a className="text-link" href={`mailto:${profile.email}`}>開始對話 <ArrowIcon /></a></div></div><div className="hero-visual"><div className="portrait-frame"><div className="portrait-initials">ZY</div><span>SPACE / LANDSCAPE<br />DESIGNER</span></div><div className="hero-note">把地方的記憶<br />變成可以被感受的空間</div></div><div className="hero-scroll">向下探索 <span>↓</span></div></section>
+        <section className="hero reveal" id="top"><div className="hero-aside"><span>個人簡歷 & 作品集</span><span>2022 — 2026</span></div><div className="hero-copy"><p className="eyebrow"><span className="status-dot" /> 個人作品集</p><h1>{profile.name}<span>{profile.englishName}</span></h1><p className="hero-role">{profile.title}</p><p className="hero-intro">{profile.intro}</p><div className="hero-actions"><a className="pill-btn" href="#work">瀏覽作品 <ArrowIcon /></a><a className="text-link" href={`mailto:${profile.email}`}>開始對話 <ArrowIcon /></a></div></div><div className="hero-visual"><div className="portrait-frame"><img src={heroGarden} alt="庭園景觀設計效果圖" /><div className="portrait-overlay"><strong>ZHUANG</strong><span>SPACE / LANDSCAPE<br />DESIGNER</span></div></div><div className="hero-note">把地方的記憶<br />變成可以被感受的空間</div></div><div className="hero-scroll">向下探索 <span>↓</span></div></section>
 
         <section className="intro-grid reveal" id="about"><div className="section-label"><span>01</span><span>PROFILE</span></div><div><p className="display-copy">從人的感受出發，讓空間回應地方、日常與時間。</p><p className="body-copy">我是一名環境設計背景的空間與景觀設計師，關注城市更新、文化場域與公共生活。透過研究、敘事與清晰的視覺表達，將一個地方的故事轉化成可被使用、記憶與重新想像的體驗。</p></div><div className="profile-meta"><div><span>所在地</span><strong>{profile.location}</strong></div><div><span>學歷</span><strong>{profile.education}</strong></div><div><span>專長</span><strong>空間設計 / 景觀設計</strong></div></div></section>
 
@@ -58,7 +59,7 @@ function App() {
 
         <section className="awards-section reveal" id="awards"><div className="section-top"><div className="section-label"><span>05</span><span>RECOGNITION</span></div><p className="section-caption">每一次參與，都是對設計思考的校準。</p></div><div className="awards-list">{notes.map((note, index) => <div className="award-item" key={note.title}><span>0{index + 1}</span><time>{note.date}</time><strong>{note.title}</strong><em>{note.type}</em></div>)}</div></section>
 
-        <section className="cta-section reveal" id="contact"><div className="cta-mark">ZY</div><div><p className="eyebrow">LET'S WORK TOGETHER</p><h2>期待與你，<br /><em>一起把想法落地。</em></h2><a className="pill-btn pill-btn--dark" href={`mailto:${profile.email}`}>寄一封信給我 <ArrowIcon /></a></div></section>
+        <section className="cta-section reveal" id="contact"><div className="cta-mark">ZHUANG</div><div><p className="eyebrow">ZHUANG</p><h2>期待與你，<br /><em>一起把想法落地。</em></h2><a className="pill-btn pill-btn--dark" href={`mailto:${profile.email}`}>期待交流 <ArrowIcon /></a></div></section>
 
         {selectedProject && <div className="project-modal" role="dialog" aria-modal="true" aria-label={selectedProject.title} onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedProject(null) }}><div className="project-modal__panel"><div className="project-modal__top"><span>PROJECT / {selectedProject.year}</span><button type="button" onClick={() => setSelectedProject(null)} aria-label="關閉項目詳情">關閉 ×</button></div><div className="project-modal__grid"><div className="project-modal__image"><img src={selectedProject.image} alt={selectedProject.title} /></div><div className="project-modal__content"><p className="eyebrow">{categoryLabels[selectedProject.category]}</p><h2>{selectedProject.title}</h2><p className="project-modal__description">{selectedProject.detail?.overview || selectedProject.description}</p><div className="project-modal__facts"><div><span>設計範圍</span><strong>{selectedProject.detail?.scope || '場地研究 / 空間策略 / 視覺表達'}</strong></div><div><span>核心方法</span><strong>{selectedProject.detail?.method || '由觀察出發，整理地方記憶與使用行為。'}</strong></div><div><span>關鍵詞</span><strong>{selectedProject.tags.join(' / ')}</strong></div></div><div className="project-modal__note">{selectedProject.detail?.note || '完整圖面與過程資料將持續整理更新。'}</div></div></div></div></div>}
 

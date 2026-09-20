@@ -54,10 +54,12 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translate(3px, -3px);
 .pill-btn--dark { background: var(--paper); border-color: var(--paper); color: var(--ink); }
 .text-link { display: inline-flex; gap: .5rem; padding-bottom: .3rem; border-bottom: 1px solid var(--ink); font: .61rem var(--mono); letter-spacing: .06em; }
 .hero-visual { position: relative; min-height: 500px; display: grid; place-items: center; animation: rise 1s .15s both; }
-.portrait-frame { position: relative; width: min(32vw, 500px); aspect-ratio: 1.04; display: flex; flex-direction: column; justify-content: end; padding: 1.2rem; border: 1px solid var(--ink); background: linear-gradient(140deg, #cfdadc, #778b92 50%, #27343b); color: var(--paper); }
+.portrait-frame { position: relative; width: min(32vw, 500px); aspect-ratio: 1.04; overflow: hidden; border: 1px solid var(--ink); background: var(--blue); color: var(--paper); }
 .portrait-frame::before { content: ''; position: absolute; inset: 16px; border: 1px solid rgba(238, 238, 235, .65); }
-.portrait-initials { position: relative; z-index: 1; align-self: center; margin-top: auto; font: 500 clamp(4rem, 9vw, 8rem)/.8 var(--sans); letter-spacing: -.17em; }
-.portrait-frame span { position: relative; z-index: 1; font: .55rem/1.6 var(--mono); letter-spacing: .1em; }
+.portrait-frame > img { width: 100%; height: 100%; object-fit: cover; }
+.portrait-overlay { position: absolute; z-index: 1; inset: 0; display: flex; flex-direction: column; justify-content: end; padding: 1.2rem; background: linear-gradient(180deg, transparent 55%, rgba(17, 17, 17, .5)); }
+.portrait-overlay strong { align-self: center; margin: auto 0 .7rem; color: rgba(238, 238, 235, .38); font: 500 clamp(2.4rem, 5vw, 4.8rem)/.8 var(--sans); letter-spacing: -.08em; }
+.portrait-overlay span { font: .55rem/1.6 var(--mono); letter-spacing: .1em; }
 .hero-note { position: absolute; right: 0; bottom: 9%; color: var(--accent); font: .8rem/1.8 var(--serif); writing-mode: vertical-rl; }
 .hero-scroll { position: absolute; bottom: 1.1rem; right: 0; color: var(--muted); text-transform: uppercase; }
 .hero-scroll span { margin-left: .7rem; color: var(--accent); font-size: 1rem; }
@@ -138,7 +140,7 @@ a:hover .arrow-icon, button:hover .arrow-icon { transform: translate(3px, -3px);
 .award-item strong { font: .92rem var(--sans); letter-spacing: -.03em; }
 .award-item em { color: var(--accent); font-style: normal; text-align: right; }
 
-.cta-section { display: grid; grid-template-columns: 1fr 2.1fr; gap: 3rem; background: var(--ink); color: var(--paper); }
+.cta-section { display: grid; grid-template-columns: 1fr 2.1fr; gap: 3rem; background: transparent; color: var(--ink); }
 .cta-mark { color: rgba(238, 238, 235, .13); font: 600 clamp(7rem, 22vw, 20rem)/.75 var(--sans); letter-spacing: -.18em; }
 .cta-section .eyebrow { color: var(--accent); }
 .cta-section h2 { margin: 1.4rem 0 2.3rem; }
