@@ -5,6 +5,8 @@ import './App.css'
 
 const filters = ['視覺體驗', '場域更新', '社區設計', '空間體驗']
 const categoryLabels = { PLACE: '場域更新', COMMUNITY: '社區設計', SPACE: '空間體驗' }
+// 後續將 3D 插件網址貼到這裡，例如：https://example.com/your-3d-viewer
+const threeDPluginUrl = ''
 
 function ArrowIcon() { return <span className="arrow-icon" aria-hidden="true">↗</span> }
 
@@ -35,7 +37,7 @@ function App() {
       <header className={`site-header ${mobileOpen ? 'menu-open' : ''}`}>
         <div className="site-header__inner">
           <a className="wordmark" href="#top" aria-label="回到首頁">ZHUANG<span>.</span></a>
-          <nav className="nav-links" aria-label="主要導覽"><a href="#work">作品</a><a href="#about">關於</a><a href="#awards">獎項</a></nav>
+          <nav className="nav-links" aria-label="主要導覽"><a href="#work">作品</a><a href="#three-d">3D 展示</a><a href="#about">關於</a><a href="#awards">獎項</a></nav>
           <a className="header-contact" href={`mailto:${profile.email}`}>聯絡我 <ArrowIcon /></a>
           <button className="menu-btn" type="button" aria-expanded={mobileOpen} aria-label="開啟選單" onClick={() => setMobileOpen((current) => !current)}><span /><span /></button>
         </div>
@@ -43,7 +45,7 @@ function App() {
 
       <div className={`mobile-nav ${mobileOpen ? 'show' : ''}`} aria-hidden={!mobileOpen}>
         <div className="mobile-nav__overlay" onClick={() => setMobileOpen(false)} />
-        <div className="mobile-nav__panel"><button className="mobile-nav__close" type="button" onClick={() => setMobileOpen(false)}>關閉 ×</button><div className="mobile-nav__links">{['top', 'work', 'about', 'awards'].map((id, index) => <a href={`#${id}`} key={id} onClick={() => setMobileOpen(false)}>{['首頁', '作品', '關於', '獎項'][index]}</a>)}<a href={`mailto:${profile.email}`} onClick={() => setMobileOpen(false)}>聯絡我 ↗</a></div></div>
+        <div className="mobile-nav__panel"><button className="mobile-nav__close" type="button" onClick={() => setMobileOpen(false)}>關閉 ×</button><div className="mobile-nav__links">{['top', 'work', 'three-d', 'about', 'awards'].map((id, index) => <a href={`#${id}`} key={id} onClick={() => setMobileOpen(false)}>{['首頁', '作品', '3D 展示', '關於', '獎項'][index]}</a>)}<a href={`mailto:${profile.email}`} onClick={() => setMobileOpen(false)}>聯絡我 ↗</a></div></div>
       </div>
 
       <main className="site-shell">
@@ -51,13 +53,20 @@ function App() {
 
         <section className="intro-grid reveal" id="about"><div className="section-label"><span>01</span><span>PROFILE</span></div><div><p className="display-copy">從人的感受出發，讓空間回應地方、日常與時間。</p><p className="body-copy">我是一名環境設計背景的空間與景觀設計師，關注城市更新、文化場域與公共生活。透過研究、敘事與清晰的視覺表達，將一個地方的故事轉化成可被使用、記憶與重新想像的體驗。</p></div><div className="profile-meta"><div><span>所在地</span><strong>{profile.location}</strong></div><div><span>學歷</span><strong>{profile.education}</strong></div><div><span>專長</span><strong>空間設計 / 景觀設計</strong></div></div></section>
 
-        <section className="work-section reveal" id="work"><div className="section-top"><div className="section-label"><span>02</span><span>SELECTED WORK</span></div><p className="section-caption">以場地為起點，整理複雜的生活經驗。</p></div><div className="filter-bar" role="tablist" aria-label="作品分類">{filters.map((filter) => <button className={activeFilter === filter ? 'filter-button active' : 'filter-button'} key={filter} onClick={() => setActiveFilter(filter)} role="tab" aria-selected={activeFilter === filter}>{filter}</button>)}</div><div className="project-grid" aria-live="polite">{visibleProjects.map((project, index) => <article className={`project-card project-card--${index % 2 ? 'light' : 'dark'}`} key={project.id}><button className="project-image-wrap project-open" type="button" onClick={() => setSelectedProject(project)} aria-label={`開啟${project.title}`}><img src={project.image} alt={project.title} className="project-image" loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none'; event.currentTarget.parentElement.classList.add('image-fallback') }} /><span className="project-number">0{index + 1}</span><span className="project-open-label">OPEN ↗</span></button><div className="project-meta"><span>{categoryLabels[project.category]}</span><span>{project.year}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><button type="button" className="project-link" onClick={() => setSelectedProject(project)}>查看項目 <ArrowIcon /></button></article>)}</div></section>
+        <section className="three-d-section reveal" id="three-d">
+          <div className="section-top"><div className="section-label"><span>02</span><span>3D EXPERIENCE</span></div><p className="section-caption">把互動模型放在這裡，之後只需替換一個網址。</p></div>
+          <div className="three-d-frame">
+            {threeDPluginUrl ? <iframe src={threeDPluginUrl} title="3D 互動展示" allow="fullscreen" /> : <div className="three-d-placeholder"><strong>3D 展示區</strong><span>請在 App.jsx 的 threeDPluginUrl 貼上插件連結</span></div>}
+          </div>
+        </section>
 
-        <section className="method-section reveal"><div className="section-label"><span>03</span><span>METHOD</span></div><div className="method-intro"><h2>先理解，再設計。</h2><p>設計不是把形式加到場地上，而是讓已有的生活脈絡變得更清楚。</p></div><div className="method-list">{thinkingSteps.map((step, index) => <button className={`method-step ${activeStep === index ? 'active' : ''}`} key={step.number} onClick={() => setActiveStep(index)}><span>{step.number}</span><strong>{step.title}</strong><p>{step.detail}</p><ArrowIcon /></button>)}</div></section>
+        <section className="work-section reveal" id="work"><div className="section-top"><div className="section-label"><span>03</span><span>SELECTED WORK</span></div><p className="section-caption">以場地為起點，整理複雜的生活經驗。</p></div><div className="filter-bar" role="tablist" aria-label="作品分類">{filters.map((filter) => <button className={activeFilter === filter ? 'filter-button active' : 'filter-button'} key={filter} onClick={() => setActiveFilter(filter)} role="tab" aria-selected={activeFilter === filter}>{filter}</button>)}</div><div className="project-grid" aria-live="polite">{visibleProjects.map((project, index) => <article className={`project-card project-card--${index % 2 ? 'light' : 'dark'}`} key={project.id}><button className="project-image-wrap project-open" type="button" onClick={() => setSelectedProject(project)} aria-label={`開啟${project.title}`}><img src={project.image} alt={project.title} className="project-image" loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none'; event.currentTarget.parentElement.classList.add('image-fallback') }} /><span className="project-number">0{index + 1}</span><span className="project-open-label">OPEN ↗</span></button><div className="project-meta"><span>{categoryLabels[project.category]}</span><span>{project.year}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><button type="button" className="project-link" onClick={() => setSelectedProject(project)}>查看項目 <ArrowIcon /></button></article>)}</div></section>
 
-        <section className="skills-section reveal"><div className="section-label"><span>04</span><span>CAPABILITIES</span></div><div className="skills-layout"><h2>把研究轉化為<br /><em>具體的空間語言。</em></h2><div className="skills-list">{capabilities.map((item, index) => <div key={item}><span>0{index + 1}</span><strong>{item}</strong></div>)}</div></div><div className="software-line"><span>熟練軟體</span><strong>{highlights[1].value}</strong></div></section>
+        <section className="method-section reveal"><div className="section-label"><span>04</span><span>METHOD</span></div><div className="method-intro"><h2>先理解，再設計。</h2><p>設計不是把形式加到場地上，而是讓已有的生活脈絡變得更清楚。</p></div><div className="method-list">{thinkingSteps.map((step, index) => <button className={`method-step ${activeStep === index ? 'active' : ''}`} key={step.number} onClick={() => setActiveStep(index)}><span>{step.number}</span><strong>{step.title}</strong><p>{step.detail}</p><ArrowIcon /></button>)}</div></section>
 
-        <section className="awards-section reveal" id="awards"><div className="section-top"><div className="section-label"><span>05</span><span>RECOGNITION</span></div><p className="section-caption">每一次參與，都是對設計思考的校準。</p></div><div className="awards-list">{notes.map((note, index) => <div className="award-item" key={note.title}><span>0{index + 1}</span><time>{note.date}</time><strong>{note.title}</strong><em>{note.type}</em></div>)}</div></section>
+        <section className="skills-section reveal"><div className="section-label"><span>05</span><span>CAPABILITIES</span></div><div className="skills-layout"><h2>把研究轉化為<br /><em>具體的空間語言。</em></h2><div className="skills-list">{capabilities.map((item, index) => <div key={item}><span>0{index + 1}</span><strong>{item}</strong></div>)}</div></div><div className="software-line"><span>熟練軟體</span><strong>{highlights[1].value}</strong></div></section>
+
+        <section className="awards-section reveal" id="awards"><div className="section-top"><div className="section-label"><span>06</span><span>RECOGNITION</span></div><p className="section-caption">每一次參與，都是對設計思考的校準。</p></div><div className="awards-list">{notes.map((note, index) => <div className="award-item" key={note.title}><span>0{index + 1}</span><time>{note.date}</time><strong>{note.title}</strong><em>{note.type}</em></div>)}</div></section>
 
         <section className="cta-section reveal" id="contact"><div className="cta-mark">ZHUANG</div><div><p className="eyebrow">ZHUANG</p><h2>期待與你，<br /><em>一起把想法落地。</em></h2><a className="pill-btn pill-btn--dark" href={`mailto:${profile.email}`}>期待交流 <ArrowIcon /></a></div></section>
 
