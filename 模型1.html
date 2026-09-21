@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>莊依文｜模型展示</title>
+    <style>
+        :root {
+            --ink: #111111;
+            --paper: #eeeeeb;
+            --muted: #777772;
+            --line: rgba(17, 17, 17, .18);
+            --accent: #e34d32;
+            --sans: Manrope, Arial, sans-serif;
+            --mono: "DM Mono", Menlo, monospace;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; min-width: 320px; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+        .sketchfab-embed-wrapper { width: 100%; min-height: 78vh; padding: 32px 3.2vw 18px; }
+        .sketchfab-embed-wrapper iframe { display: block; width: 100%; height: min(78vh, 820px); border: 1px solid var(--line); background: #e3e3df; }
+        .model-caption { margin: 10px 0 0; color: var(--muted); font: 11px/1.6 var(--mono); }
+        .model-caption a { color: inherit; }
+        .model-caption a:hover { color: var(--accent); }
+        .contact-section { display: grid; grid-template-columns: 1fr 2.1fr; gap: 3rem; padding: 7rem 3.2vw; border-top: 1px solid var(--line); }
+        .contact-mark { color: rgba(17, 17, 17, .1); font: 600 clamp(5rem, 16vw, 14rem)/.75 var(--sans); letter-spacing: -.16em; }
+        .eyebrow { color: var(--accent); font: 11px var(--mono); letter-spacing: .08em; }
+        .contact-section h1 { max-width: 720px; margin: 20px 0 36px; font: 500 clamp(3rem, 7vw, 7rem)/.95 var(--sans); letter-spacing: -.11em; }
+        .contact-section h1 em { color: var(--accent); font-style: normal; }
+        .contact-button { display: inline-flex; align-items: center; gap: 12px; padding: 13px 18px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font: 11px var(--mono); text-decoration: none; }
+        .contact-button:hover { border-color: var(--accent); background: var(--accent); }
+        .site-footer { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 2rem; padding: 42px 3.2vw; border-top: 1px solid var(--line); }
+        .footer-name { font-size: 20px; font-weight: 600; letter-spacing: -.08em; }
+        .site-footer p, .footer-contact, .site-footer small { color: var(--muted); font: 11px/1.7 var(--mono); }
+        .site-footer p { margin: 8px 0 0; }
+        .footer-contact { display: flex; flex-direction: column; gap: 6px; }
+        .footer-contact a { color: inherit; text-decoration: none; }
+        .footer-contact a:hover { color: var(--accent); }
+        .site-footer small { align-self: end; }
+
+        @media (max-width: 700px) {
+            .sketchfab-embed-wrapper { min-height: 62vh; padding: 18px 5vw 14px; }
+            .sketchfab-embed-wrapper iframe { height: 62vh; }
+            .contact-section { display: block; padding: 5rem 5vw; }
+            .contact-mark { margin-bottom: 3rem; }
+            .site-footer { grid-template-columns: 1fr 1fr; padding: 34px 5vw; }
+            .site-footer small { grid-column: 1 / -1; margin-top: 14px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="sketchfab-embed-wrapper"> <iframe title="一戸建て + Ichijoushi (003) buildings" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/49b4cc7225424763a2264b5b89e37c2f/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/ichijoushi-003-buildings-49b4cc7225424763a2264b5b89e37c2f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 一戸建て + Ichijoushi (003) buildings </a> by <a href="https://sketchfab.com/mrdt.club" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> MrdT </a> on <a href="https://sketchfab.com" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+    <div class="sketchfab-embed-wrapper">
+        <iframe title="一戸建て + Ichijoushi (003) buildings" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/49b4cc7225424763a2264b5b89e37c2f/embed"></iframe>
+        <p class="model-caption"><a href="https://sketchfab.com/3d-models/ichijoushi-003-buildings-49b4cc7225424763a2264b5b89e37c2f" target="_blank" rel="nofollow">一戸建て + Ichijoushi (003) buildings</a> by <a href="https://sketchfab.com/mrdt.club" target="_blank" rel="nofollow">MrdT</a> on <a href="https://sketchfab.com" target="_blank" rel="nofollow">Sketchfab</a></p>
+    </div>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-mark">ZHUANG</div>
+        <div>
+            <p class="eyebrow">ZHUANG</p>
+            <h1>期待與你，<br><em>一起把想法落地。</em></h1>
+            <a class="contact-button" href="mailto:2429636288@qq.com">期待交流 <span aria-hidden="true">↗</span></a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div>
+            <span class="footer-name">莊依文</span>
+            <p>空間設計師 · 景觀設計 · 方案策劃</p>
+        </div>
+        <div class="footer-contact">
+            <a href="mailto:2429636288@qq.com">2429636288@qq.com</a>
+            <a href="tel:15892020035">15892020035</a>
+            <span>ZzEven11_</span>
+        </div>
+        <small>© 2026 Zhuang Yiwen</small>
+    </footer>
 </body>
 </html>
