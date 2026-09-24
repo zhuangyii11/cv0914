@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
+import '@google/model-viewer'
 import { capabilities, highlights, notes, profile, projects, thinkingSteps } from './data'
 import heroGarden from './assets/庄依文个人简历及作品集_20.png'
 import './App.css'
 
 const filters = ['視覺體驗', '場域更新', '社區設計', '空間體驗']
 const categoryLabels = { PLACE: '場域更新', COMMUNITY: '社區設計', SPACE: '空間體驗' }
-// 後續將 3D 插件網址貼到這裡，例如：https://example.com/your-3d-viewer
-const threeDPluginUrl = ''
 
 function ArrowIcon() { return <span className="arrow-icon" aria-hidden="true">↗</span> }
 
@@ -54,9 +53,21 @@ function App() {
         <section className="intro-grid reveal" id="about"><div className="section-label"><span>01</span><span>PROFILE</span></div><div><p className="display-copy">從人的感受出發，讓空間回應地方、日常與時間。</p><p className="body-copy">我是一名環境設計背景的空間與景觀設計師，關注城市更新、文化場域與公共生活。透過研究、敘事與清晰的視覺表達，將一個地方的故事轉化成可被使用、記憶與重新想像的體驗。</p></div><div className="profile-meta"><div><span>所在地</span><strong>{profile.location}</strong></div><div><span>學歷</span><strong>{profile.education}</strong></div><div><span>專長</span><strong>空間設計 / 景觀設計</strong></div></div></section>
 
         <section className="three-d-section reveal" id="three-d">
-          <div className="section-top"><div className="section-label"><span>02</span><span>3D EXPERIENCE</span></div><p className="section-caption">把互動模型放在這裡，之後只需替換一個網址。</p></div>
+          <div className="section-top"><div className="section-label"><span>02</span><span>3D EXPERIENCE</span></div><p className="section-caption">拖曳旋轉、滾動縮放，自動展示空間模型。</p></div>
           <div className="three-d-frame">
-            {threeDPluginUrl ? <iframe src={threeDPluginUrl} title="3D 互動展示" allow="fullscreen" /> : <div className="three-d-placeholder"><strong>3D 展示區</strong><span>請在 App.jsx 的 threeDPluginUrl 貼上插件連結</span></div>}
+            <model-viewer
+              src="/ting.glb"
+              alt="空間設計 3D 模型"
+              camera-controls
+              auto-rotate
+              rotation-per-second="20deg"
+              camera-orbit="auto auto auto"
+              field-of-view="auto"
+              shadow-intensity="0.8"
+              exposure="1"
+              interaction-prompt="auto"
+              loading="eager"
+            />
           </div>
         </section>
 
